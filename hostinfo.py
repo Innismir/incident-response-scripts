@@ -63,7 +63,7 @@ def fdns_query(host):
 
 	try:
 		resolver = dns.resolver.Resolver()
-		reolver.timeout = 1
+		resolver.timeout = 1
 		value = resolver.query(line)
 	except dns.exception.Timeout, e:
 		value = ['TIMEOUT']
@@ -82,7 +82,7 @@ def network_lookup(ip):
 		ip_rev = ip_array[3] + '.' + ip_array[2] + '.' + ip_array[1] + '.' + ip_array[0]
 
 		resolver = dns.resolver.Resolver()
-		reolver.timeout = 1
+		resolver.timeout = 1
 
 		as_response = str(resolver.query(ip_rev + '.origin.asn.shadowserver.org','TXT')[0]).replace('"','')
 		as_values = as_response.split('|')
